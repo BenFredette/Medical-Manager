@@ -170,18 +170,30 @@
     </div>
     <div class="drug-section">
       <h2>Drugs</h2>
-      <table id="drug-table">
-        <tr>
-          <th>Drug Name</th>
-          <th>Dosage</th>
-        </tr>
-        <% for(Drug drug : drugs){ %>
-        <tr>
-            <td><%= drug.getName() %></td>
-            <td><%= drug.getDosage() %></td>
-        </tr>
-        <% } %>
-      </table>
+
+<table id="drug-table">
+  <tr>
+    <th>Drug Name</th>
+    <th>Dosage</th>
+    <th>Report Side Effect</th>
+    <th></th>
+  </tr>
+  <% for(Drug drug : drugs){ %>
+    <tr>
+      <form method="post" action ="DrugReport">
+        <input type="hidden" name="drugName" value="<%= drug.getName() %>">
+        <td><%= drug.getName() %></td>
+        <td><%= drug.getDosage() %></td>
+        <td>
+          <input type="sideEffect" name="sideEffect" size="30">  
+        </td>
+        <td>
+          <input type="submit" value="Send">
+        </td>
+      </form>
+    </tr>
+  <% } %>
+</table>
     </div>
   </body>
 </html>

@@ -57,6 +57,15 @@ public class Login extends HttpServlet {
             rd.forward(request, response);
             
         }
+        }else if(account_type.equals("Admin")){
+            if(username.equals("admin") && password.equals("admin")){
+                RequestDispatcher rd= request.getRequestDispatcher("admin.jsp");
+                rd.forward(request, response);
+                
+            }else{
+                 RequestDispatcher rd= request.getRequestDispatcher("loginfailed.jsp");
+                 rd.forward(request, response);      
+            }
         }
         
         
