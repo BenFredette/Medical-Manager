@@ -1,52 +1,115 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-<style>
-body {
-  background-color: #E6E6FA;
-}
-</style>
-
-<center><h2>Login to see your account</h2></center>
-<center>
-<img src="resources/lib1.jpg" >
-</center>
-
-<form action="Login" method="post">
-
-<table border="2" align="center" cellpadding="5" cellspacing="5">
-<tr>
-<td>Select account type:</td>
-<td>
-<select name="account_type">
-<option value="Patient">Patient</option>
-<option value="User">User</option>
-<option value="Admin">Admin</option>
-</select>
-</td>
-</tr>
-<tr>
-<td>Enter username:</td>
-<td><input type="text" name="username" size="30"></td>
-</tr>
-<tr>
-<td>Enter password:</td>
-<td><input type="password" name="password" size="30"></td>
-</tr>
-<tr>
-<td></td>
-<td>
-<input type="submit" value="Login">
-</td>
-</tr>
-</table>
-</form>
-<center>
-<img src="resources/lib2.png" >
-</center>
-</body>
+  <head>
+    <style>
+      .container {
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 30px;
+        box-shadow: 0 0 10px #999;
+        border-radius: 10px;
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      
+      form {
+        margin-bottom: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #999;
+      }
+      
+      input[type="text"],
+      select {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px #999;
+      }
+      
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        float: right;
+      }
+      
+      table {
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+      
+      th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #333;
+        color: white;
+      }
+      
+      td button {
+        background-color: red;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add/Remove Patients or Doctors</h1>
+      <form>
+        <!-- Form for adding a new patient or doctor -->
+        <h2>Add Patient/Doctor</h2>
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Email">
+        <select>
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor</option>
+        </select>
+        <input type="submit" value="Add">
+      </form>
+      <table>
+        <!-- Table for displaying current patients and doctors -->
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>Randal Smith</td>
+          <td>randal@randycare.com</td>
+          <td>Patient</td>
+          <td><button>Remove</button></td>
+        </tr>
+        <tr>
+          <td>Dr. Bobby Fisch</td>
+          <td>drbobf@randycare.com</td>
+          <td>Doctor</td>
+          <td><button>Remove</button></td>
+        </tr>
+      </table>
+    </div>
+  </body>
 </html>
