@@ -1,4 +1,8 @@
 ryerson/ca/lab2/Login.class
-ryerson/ca/lab2/UserInfo.class
+ryerson/ca/lab2/Doctor.class
+ryerson/ca/lab2/Appointment.class
+ryerson/ca/lab2/Admin.class
+ryerson/ca/lab2/Drug.class
+ryerson/ca/lab2/User.class
+ryerson/ca/lab2/Patient.class
 ryerson/ca/lab2/Extend.class
-ryerson/ca/lab2/BookBorrowed.class

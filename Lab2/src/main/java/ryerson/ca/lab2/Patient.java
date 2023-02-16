@@ -72,4 +72,12 @@ public class Patient extends User{
         //** Have not decided whats easiest way to do this yet. Will discuss after jsps are made
         this.sendMessage(this.name + " has reported a side effect from the drug");
     }
+    
+    public ArrayList<String> getMessages(){
+        return this.messages;
+    }
+    
+    public ArrayList<Drug> getDrugs(){
+        return this.drugs;
+    }
 }

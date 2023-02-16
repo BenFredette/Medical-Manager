@@ -11,10 +11,18 @@ package ryerson.ca.lab2;
  */
 public class Drug {
     String name;
-    String doctorNote;
+    String dosage;
     
-    public Drug(String name, String doctorNote){
+    public Drug(String name, String dosage){
         this.name = name;
-        this.doctorNote = doctorNote;
+        this.dosage = dosage;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public String getDosage(){
+        return this.dosage;
     }
 }

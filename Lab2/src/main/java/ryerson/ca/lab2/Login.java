@@ -39,43 +39,45 @@ public class Login extends HttpServlet {
         
         String username=(String) request.getParameter("username");
         String password=(String) request.getParameter("password");
+        String account_type = (String) request.getParameter("account_type");
         
-        UserInfo uinfo=getUserInfo(username, password);
+        if(account_type.equals("Patient")){
+        Patient patient = getPatientInfo(username, password);
         
-        if (uinfo==null){
+        if (patient==null){
             RequestDispatcher rd= request.getRequestDispatcher("loginfailed.jsp");
             rd.forward(request, response);
         }
         else{
             request.getSession().setAttribute("uname", username);
-            request.setAttribute("booksBorrowedInfo", uinfo.getBookBorrowed());
+            request.setAttribute("patientMessages", patient.getMessages());
+            request.setAttribute("patientDrugs", patient.getDrugs());
             
-            RequestDispatcher rd= request.getRequestDispatcher("userbooks.jsp");
+            RequestDispatcher rd= request.getRequestDispatcher("patient.jsp");
             rd.forward(request, response);
             
+        }
         }
         
         
      
     }
 
-    private UserInfo getUserInfo(String uname, String password) {
+    private Patient getPatientInfo(String uname, String password) {
         /**
-         * to be completed. For now, we just return a user info object that has a default book in a default date;
+         * to be completed. For now, we just return a patient object that has a default message;
          * This method must return null when user name and password is incorrect
-         * otherwise it must return an object containing all books that have been borrowed by the user, in addition to user information like name, address, ...
+         * otherwise it must return an object containing all information about the patient
          */
-        UserInfo uf= new UserInfo();
+        //Create sample information to display state of a patient on the web application
+        //Eventually, the program will search the database for matching username and then add proper information
+        Doctor exDoctor = new Doctor("Dr. Example","Doctory password","DRE", "Dr@tmu.ca");
+        Patient patient = new Patient(uname, uname, password, "Ex@tmu.ca",exDoctor);
+        exDoctor.sendMessage(patient, "Welcome to our hospital, my name is "+exDoctor.name+" and I will be your doctor");
+        Drug exDrug = new Drug("Example Drug", "This would be where your doctor would leave you instructions");
+        exDoctor.prescribeDrug(patient, exDrug);
    
-        
-       try {
-           uf.addBook(new BookBorrowed("Leshante", "Romain Rolland", new SimpleDateFormat("YYYY-MM-dd").parse("2021-02-01"), true));
-           uf.addBook(new BookBorrowed("John Kristof", "Romain Rolland", new SimpleDateFormat("YYYY-MM-dd").parse("2021-01-20"), false));
-       } catch (ParseException ex) {
-           Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-           System.out.println("Error");
-       }
-        return uf;
+        return patient;
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

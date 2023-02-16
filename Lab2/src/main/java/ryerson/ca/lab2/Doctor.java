@@ -18,6 +18,8 @@ public class Doctor extends User{
         this.password = password;
            
     }
+    //Temporary default constructor to allow 
+   
     //** Drug object to be created in doctor jsp
     public void prescribeDrug(Patient patient, Drug drug){
         patient.drugs.add(drug);
