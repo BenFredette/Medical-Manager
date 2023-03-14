@@ -1,0 +1,33 @@
+<table>
+  <tr>
+    <td>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <label for="drug">Drug name:</label>
+        <input type="text" id="drug" name="drug"><br><br>
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <label for="instructions">Instructions:</label>
+        <input type="text" id="instructions" name="instructions"><br><br>
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <input type="submit" value="Prescribe">
+      </form>
+    </td>
+  </tr>
+</table>
