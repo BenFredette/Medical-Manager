@@ -1,0 +1,15 @@
+CREATE DATABASE Prescribe_DB;
+
+CREATE TABLE PRESCRIPTION(
+id INT,
+drugname VARCHAR(50),
+dosage VARCHAR(500),
+PRIMARY KEY(id)
+);
+
+CREATE TABLE PATIENT_PRESCRIPTIONS(
+patient_uname VARCHAR(20),
+pres_id  INT,
+FOREIGN KEY (pres_id) REFERENCES PRESCRIPTION (id),
+PRIMARY KEY(patient_uname, pres_id)
+);
