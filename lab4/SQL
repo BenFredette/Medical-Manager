@@ -13,3 +13,12 @@ pres_id  INT,
 FOREIGN KEY (pres_id) REFERENCES PRESCRIPTION (id),
 PRIMARY KEY(patient_uname, pres_id)
 );
+
+CREATE DATABASE Report_DB;
+
+CREATE TABLE REPORT(
+rep_id INT, 
+text VARCHAR(500),
+pres_id INT,
+PRIMARY KEY(rep_id)
+);
