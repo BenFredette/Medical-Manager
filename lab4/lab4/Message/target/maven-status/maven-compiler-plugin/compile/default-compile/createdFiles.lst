@@ -1,0 +1,5 @@
+helper/Message_XML.class
+business/MessageBusiness.class
+endpoint/MessageResource.class
+endpoint/ApplicationConfig.class
+persistence/messageDatabase.class
