@@ -1,6 +1,0 @@
-persistence/PrescriptionDatabase.class
-helper/Prescription_XML.class
-helper/Prescription.class
-endpoint/PrescribeResource.class
-business/PrescribeBusiness.class
-endpoint/ApplicationConfig.class
