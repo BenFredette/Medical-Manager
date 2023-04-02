@@ -1,0 +1,68 @@
+<html>
+<style>
+  body {
+    background-color: #E6E6FA;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+h2 {
+margin-top: 50px;
+color: #333;
+}
+
+.logo-image {
+width: 200px;
+margin-top: 20px;
+}
+
+.login-form {
+margin-top: 50px;
+width: 400px;
+padding: 20px;
+background-color: white;
+border: 1px solid lightgray;
+border-radius: 10px;
+box-shadow: 0px 0px 10px lightgray;
+}
+
+input[type="text"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: none;
+border-bottom: 1px solid lightgray;
+font-size: 16px;
+}
+
+input[type="submit"] {
+width: 100%;
+padding: 10px;
+background-color: #333;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+background-color: #444;
+}
+</style>
+
+<body>
+  <center>
+    <h2>Randy Hospital Login</h2>
+    <img src="resources/hospital-logo.jpg" class="logo-image">
+  </center>
+  <div class="login-form">
+    <form action="Login" method="post">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+</html>
