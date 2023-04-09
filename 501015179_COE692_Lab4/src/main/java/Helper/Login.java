@@ -56,22 +56,16 @@ public class Login extends HttpServlet {
         // If token is not null, store it in the session and continue to appropriate page
         request.getSession().setAttribute("token", token);
 
-        if (account_type.equals("Patient")) {
-            Patient patient = getPatientInfo(username, password);
-            System.out.println(patient.getUsername());
-            if (patient == null) {
-                System.out.println("Oops, patient was null:/");
-                RequestDispatcher rd = request.getRequestDispatcher("loginfailed.jsp");
-                rd.forward(request, response);
-            } else {
-                request.getSession().setAttribute("uname", username);
-                request.getSession().setAttribute("password", password);
-
-                response.sendRedirect("http://localhost:8080/Prescribe/webresources/prescribe/" + username);
-
-                rd.forward(request, response);
-
-            }
+         if (account_type.equals("Patient")) {
+        Patient patient = getPatientInfo(username, password);
+        if (patient == null) {
+            RequestDispatcher rd = request.getRequestDispatcher("loginfailed.jsp");
+            rd.forward(request, response);
+        } else {
+            request.getSession().setAttribute("uname", username);
+            request.getSession().setAttribute("password", password);
+            response.sendRedirect("http://localhost:8080/Prescribe/webresources/prescribe/" + username);
+        }
         } else if (account_type.equals("Admin")) {
             if (username.equals("admin") && password.equals("admin")) {
                 RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
@@ -91,10 +85,11 @@ public class Login extends HttpServlet {
             } else {
                 request.getSession().setAttribute("uname", username);
                 request.getSession().setAttribute("password", password);
-                request.setAttribute("doctorMessages", doctor.getMessages());
+                response.sendRedirect("http://localhost:8080/Prescribe/webresources/prescribe/");
+                //request.setAttribute("doctorMessages", doctor.getMessages());
 
-                RequestDispatcher rd = request.getRequestDispatcher("doctor.jsp");
-                rd.forward(request, response);
+                //RequestDispatcher rd = request.getRequestDispatcher("doctor.jsp");
+                //rd.forward(request, response);
 
             }
         }
